@@ -1,59 +1,66 @@
-TriageX
-Real-time anomaly detection and prioritization tool for cybersecurity triage
+# TriageX - Real-Time Anomaly Detection Tool
 
-Overview
-TriageX is a real-time forensic and cybersecurity triage tool that detects, analyzes, and prioritizes system and network anomalies. Built using machine learning, it empowers users to respond quickly to threats, enhancing digital safety in an accessible and ethical manner.
+TriageX is a real-time forensic tool designed to analyze system and network behavior for suspicious activity and anomalies. It provides live monitoring, file scanning, anomaly detection using machine learning models, and easy-to-read reports — all through a user-friendly desktop GUI built with Python’s Tkinter.
 
-Features
-Network Monitoring: Tracks bytes sent/received, connections, and packet loss.
+---
 
-System Monitoring: Monitors CPU, memory, disk usage, and running processes.
+## 📌 Key Features
 
-File Scanning: Detects suspicious files using extension and name patterns.
+- **🔴 Real-Time System Monitoring**
+  - CPU, Memory, Disk, and Process tracking
+- **🌐 Network Activity Tracking**
+  - Monitor IP, bytes sent/received, active connections, simulated packet loss
+- **🦠 Suspicious File Scanner**
+  - Scans drives (`C:/`, `D:/`) for known malicious file types and names
+- **🧠 Machine Learning-Based Anomaly Detection**
+  - Uses `Isolation Forest` and `Random Forest Classifier` to label activity as Low/Medium/High risk
+- **📊 Visual Reports**
+  - Correlation heatmaps and CSV logs of anomalies and suspicious files
+- **📁 NSL-KDD Dataset Integration**
+  - Leverages real-world intrusion detection data for training
 
-Anomaly Detection: Uses Isolation Forest to detect real-time outliers.
+---
 
-Triage Prioritization: Random Forest model classifies anomalies into Low/Medium/High priority.
+## 💡 How It Works
 
-Interactive UI: Tkinter interface with clickable logs and visual reports (heatmaps, confusion matrix).
+1. **Live Monitoring:** Tracks system and network metrics in real time.
+2. **File Scan:** Searches for potentially malicious files based on name and extension.
+3. **Anomaly Detection:** Trains Random Forest on the NSL-KDD dataset. Uses Isolation Forest for unsupervised anomaly detection.
+4. **Triage Dashboard:** Shows labeled priority of threats and anomalies.
+5. **Reporting:** Saves analysis results and visualizations for review.
 
-Installation
-Clone the repository:
+---
 
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/triagex.git
-cd triagex
-Install dependencies:
+## 🧠 Dataset Used
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-(Optional) Download and preprocess the NSL-KDD dataset:
+This project uses the NSL-KDD dataset for ML training:
 
-Save processed file as external_training_data.csv in the project folder.
+- **Source:** [Kaggle: NSL-KDD Intrusion Detection System](https://www.kaggle.com/code/eneskosar19/intrusion-detection-system-nsl-kdd)
+- **Preprocessing:** Selected features from the dataset are used and assigned random priority labels for triage model training.
 
-Usage
-Run the tool:
+---
 
-bash
-Copy
-Edit
+## 🛠️ Installation & Setup
+
+### ✅ Requirements
+
+- Python 3.8+
+- Recommended to run on Windows (for file scanning)
+
+### 🔧 Install Dependencies
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn psutil
+```
+
+### 🚀 Run the App
+
+```bash
 python triagex.py
-Use the UI tabs to monitor, scan, and triage.
+```
 
-Logs are saved automatically.
+---
 
-Reports are saved as images (e.g., external_rf_confusion_matrix.png).
+## 👨‍💻 Author
 
-Technology Stack
-Python Libraries: Tkinter, Scikit-learn, Psutil, Pandas, Seaborn, Matplotlib
-
-Models Used: Isolation Forest, Random Forest Classifier
-
-Dataset: NSL-KDD for training priority model
-
-Contributing
-Feel free to fork and contribute via pull requests. Suggestions and improvements are welcome, especially around real-world dataset integration and UI features.
+Developed by **scriptkidder, Arcy-me**  
